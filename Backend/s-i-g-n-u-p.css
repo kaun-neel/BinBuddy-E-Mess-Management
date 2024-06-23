@@ -1,0 +1,384 @@
+.frame-child {
+  width: 1194px;
+  height: 757px;
+  position: relative;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-turquoise-300);
+  display: none;
+  max-width: 100%;
+  z-index: 0;
+}
+.e-mail,
+.sign-up2 {
+  font-weight: 900;
+  display: inline-block;
+}
+.e-mail {
+  width: 133px;
+  height: 24px;
+  position: absolute;
+  margin: 0 !important;
+  top: 118px;
+  right: 413px;
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+.sign-up2 {
+  height: 73px;
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+.sign-up-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0 0 var(--padding-12xs);
+  font-size: var(--font-size-29xl);
+  color: var(--color-black);
+}
+.password-decoration {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-turquoise-100);
+  z-index: 1;
+}
+.password-icon {
+  height: 24px;
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+.password-field {
+  width: 216px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-12xs);
+  box-sizing: border-box;
+}
+.frame-item {
+  width: 500px;
+  position: relative;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-turquoise-100);
+  height: 70px;
+  display: none;
+}
+.eye-icon {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  object-fit: contain;
+  z-index: 2;
+}
+.password-decoration-parent,
+.password-visibility,
+.rectangle-group {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.rectangle-group {
+  flex: 1;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-turquoise-100);
+  justify-content: flex-end;
+  padding: var(--padding-3xs) var(--padding-lgi);
+  z-index: 1;
+}
+.password-decoration-parent,
+.password-visibility {
+  height: 70px;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-12xs);
+}
+.password-decoration-parent {
+  height: 252px;
+  flex-direction: column;
+  padding: 0 0 var(--padding-18xl);
+  gap: var(--gap-lg-5);
+}
+.confirm-button-decoration {
+  align-self: stretch;
+  width: 500px;
+  position: relative;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-gray-100);
+  max-width: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+.sign-up3 {
+  align-self: stretch;
+  height: 57px;
+  position: relative;
+  font-weight: 900;
+  display: inline-block;
+  flex-shrink: 0;
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+.confirm-button,
+.confirm-button-decoration-parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.confirm-button {
+  width: 133px;
+  flex-direction: column;
+  padding: var(--padding-smi) 0 0;
+  box-sizing: border-box;
+  margin-left: -317px;
+}
+.confirm-button-decoration-parent {
+  align-self: stretch;
+  height: 70px;
+  flex-direction: row;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.already-a-user {
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+.user-label {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-9xl) 0 var(--padding-xl);
+}
+.wrapper-rectangle-9-child {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+  object-fit: contain;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform: scale(1.222);
+}
+.wrapper-rectangle-9 {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.option-divider {
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs) 0 0;
+  box-sizing: border-box;
+}
+.wrapper-rectangle-7-child {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+  object-fit: contain;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform: scale(1.25);
+}
+.wrapper-rectangle-7 {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.divider-spacing {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+}
+.wrapper-rectangle-8-child {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  z-index: 1;
+  object-fit: contain;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform: scale(1.2);
+}
+.wrapper-rectangle-8 {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-options {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.user-options,
+.user-options-wrapper {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.user-options {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 7px;
+}
+.user-options-wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 var(--padding-7xl) 0 var(--padding-14xl);
+  box-sizing: border-box;
+}
+.frame-parent,
+.rectangle-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-42xl);
+  max-width: 100%;
+}
+.frame-parent {
+  align-self: stretch;
+  align-items: flex-end;
+  font-size: var(--font-size-sm);
+  color: var(--color-darkslategray);
+  font-family: var(--font-lalezar);
+}
+.rectangle-parent {
+  position: absolute;
+  top: 117px;
+  left: 266px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-turquoise-300);
+  width: 1194px;
+  align-items: flex-start;
+  padding: var(--padding-3xl) var(--padding-26xl) var(--padding-11xl)
+    var(--padding-629xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.sign-up-child {
+  position: absolute;
+  top: 113px;
+  left: 110px;
+  width: 938px;
+  height: 891px;
+  display: none;
+}
+.page-decoration-icon {
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  object-fit: contain;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform: scale(1.023);
+}
+.wrapper-page-decoration {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: -10px;
+  border-radius: 50%;
+  max-height: 100%;
+  width: 863px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sign-up1 {
+  width: 100%;
+  height: 990px;
+  position: relative;
+  background-color: var(--color-darkturquoise);
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1050px) {
+  .login-options {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sign-up1 {
+    height: auto;
+    min-height: 990;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .sign-up2 {
+    font-size: var(--font-size-19xl);
+  }
+  .sign-up3 {
+    font-size: var(--font-size-7xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .e-mail {
+    font-size: var(--font-size-base);
+  }
+  .sign-up2 {
+    font-size: var(--font-size-10xl);
+  }
+  .password-icon {
+    font-size: var(--font-size-base);
+  }
+  .sign-up3 {
+    font-size: var(--font-size-lgi);
+  }
+}

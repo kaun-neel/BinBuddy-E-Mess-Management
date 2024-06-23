@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./about.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lalezar:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="about1">
+      <img
+        class="back-arrow-icon"
+        loading="lazy"
+        alt=""
+        src="./public/back-arrow@2x.png"
+        id="backArrowImage"
+      />
+
+      <main class="about-inner">
+        <section class="frame-section">
+          <div class="rectangle-div"></div>
+          <div class="about-us-wrapper">
+            <div class="about-us">About us</div>
+          </div>
+          <div class="line-wrapper">
+            <div class="line-div"></div>
+          </div>
+          <div class="line-container">
+            <div class="frame-child1"></div>
+          </div>
+          <div class="vector-wrapper">
+            <img
+              class="line-icon"
+              loading="lazy"
+              alt=""
+              src="./public/line-6.svg"
+            />
+          </div>
+          <img
+            class="frame-child2"
+            loading="lazy"
+            alt=""
+            src="./public/line-6.svg"
+          />
+        </section>
+      </main>
+    </div>
+
+    <script>
+      var backArrowImage = document.getElementById("backArrowImage");
+      if (backArrowImage) {
+        backArrowImage.addEventListener("click", function (e) {
+          window.location.href = "./h-o-m-e.html";
+        });
+      }
+      </script>
+  </body>
+</html>
