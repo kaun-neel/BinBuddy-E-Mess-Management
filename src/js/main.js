@@ -50,6 +50,28 @@ function setupEventListeners() {
     if (mobileToggle) {
         mobileToggle.addEventListener('click', toggleMobileMenu);
     }
+
+    // Setup navigation links
+    setupNavigationLinks();
+}
+
+function setupNavigationLinks() {
+    // Handle navigation link clicks
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                scrollToSection(targetId);
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
 }
 
 function setupIntersectionObserver() {
@@ -62,6 +84,12 @@ function setupIntersectionObserver() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
+                
+                // Update active nav link based on visible section
+                const sectionId = entry.target.id;
+                if (sectionId) {
+                    updateActiveNavLink(sectionId);
+                }
             }
         });
     }, observerOptions);
@@ -69,6 +97,16 @@ function setupIntersectionObserver() {
     // Observe sections for animations
     const sections = document.querySelectorAll('section');
     sections.forEach(section => observer.observe(section));
+}
+
+function updateActiveNavLink(sectionId) {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+        }
+    });
 }
 
 // Navigation functions
@@ -97,7 +135,121 @@ function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
+    } else if (sectionId === 'contact') {
+        // If contact section doesn't exist, show contact modal
+        showContactModal();
     }
+}
+
+// Contact Modal
+function showContactModal() {
+    // Create contact modal if it doesn't exist
+    let contactModal = document.getElementById('contactModal');
+    if (!contactModal) {
+        contactModal = createContactModal();
+        document.body.appendChild(contactModal);
+    }
+    showModal('contactModal');
+}
+
+function createContactModal() {
+    const modal = document.createElement('div');
+    modal.id = 'contactModal';
+    modal.className = 'modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Contact Us</h2>
+                <button class="modal-close" onclick="closeModal('contactModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>support@binbuddy.com</p>
+                            <p>partnerships@binbuddy.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                            <p>+91 87654 32109</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>IIT Patna Campus<br>Bihta, Patna - 801106<br>Bihar, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <h4>Support Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-section">
+                    <h3>Send us a message</h3>
+                    <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Name</label>
+                            <input type="text" id="contactName" class="form-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Email</label>
+                            <input type="email" id="contactEmail" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject" class="form-label">Subject</label>
+                            <select id="contactSubject" class="form-select" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage" class="form-label">Message</label>
+                            <textarea id="contactMessage" class="form-textarea" placeholder="Your message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
+    return modal;
+}
+
+function handleContactSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Show loading state
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate sending message
+    setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        form.reset();
+        closeModal('contactModal');
+        showSuccessMessage('Message sent successfully! We\'ll get back to you soon.');
+    }, 2000);
 }
 
 // Modal functions
@@ -152,20 +304,20 @@ function selectRole(role) {
     
     // Show appropriate form based on role
     if (role === 'donor') {
-        showDonorFlow();
+        window.location.href = './donor-details.html';
     } else if (role === 'receiver') {
-        showReceiverFlow();
+        window.location.href = './receiver-details.html';
     }
 }
 
 function showDonorFlow() {
-    // Create donor dashboard/form
-    createDonorInterface();
+    // Navigate to donor details page
+    window.location.href = './donor-details.html';
 }
 
 function showReceiverFlow() {
-    // Create receiver dashboard/form
-    createReceiverInterface();
+    // Navigate to receiver details page
+    window.location.href = './receiver-details.html';
 }
 
 // Authentication
@@ -492,9 +644,9 @@ function showErrorMessage(message) {
     }, 3000);
 }
 
-// Add CSS for toast animations
-const toastStyles = document.createElement('style');
-toastStyles.textContent = `
+// Add CSS for toast animations and contact modal
+const additionalStyles = document.createElement('style');
+additionalStyles.textContent = `
     @keyframes slideInRight {
         from {
             transform: translateX(100%);
@@ -515,6 +667,57 @@ toastStyles.textContent = `
             transform: translateX(100%);
             opacity: 0;
         }
+    }
+    
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: var(--gray-50);
+        border-radius: var(--radius-lg);
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+    
+    .contact-details h4 {
+        margin: 0 0 0.5rem 0;
+        font-weight: 600;
+        color: var(--gray-900);
+    }
+    
+    .contact-details p {
+        margin: 0 0 0.25rem 0;
+        color: var(--gray-600);
+        font-size: var(--font-size-sm);
+    }
+    
+    .contact-form-section {
+        border-top: 1px solid var(--gray-200);
+        padding-top: 2rem;
+    }
+    
+    .contact-form-section h3 {
+        margin: 0 0 1.5rem 0;
+        font-size: var(--font-size-xl);
+        font-weight: 600;
+        color: var(--gray-900);
+    }
+    
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .dashboard {
@@ -634,6 +837,10 @@ toastStyles.textContent = `
     }
     
     @media (max-width: 768px) {
+        .contact-info {
+            grid-template-columns: 1fr;
+        }
+        
         .dashboard-header {
             flex-direction: column;
             gap: 1rem;
@@ -652,7 +859,7 @@ toastStyles.textContent = `
         }
     }
 `;
-document.head.appendChild(toastStyles);
+document.head.appendChild(additionalStyles);
 
 // Export functions for global access
 window.showRoleSelection = showRoleSelection;
@@ -668,3 +875,5 @@ window.scrollToSection = scrollToSection;
 window.toggleMobileMenu = toggleMobileMenu;
 window.logout = logout;
 window.showDashboard = showDashboard;
+window.showContactModal = showContactModal;
+window.handleContactSubmit = handleContactSubmit;
