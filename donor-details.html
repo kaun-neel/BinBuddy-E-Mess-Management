@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Details - BinBuddy</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/forms.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-page">
+        <div class="form-container">
+            <div class="form-header">
+                <button class="back-btn" onclick="history.back()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="form-title-section">
+                    <h1 class="form-title">Donor Details</h1>
+                    <p class="form-subtitle">Tell us about yourself to get started</p>
+                </div>
+            </div>
+
+            <form class="modern-form" id="donorForm" onsubmit="handleDonorSubmit(event)">
+                <div class="form-section">
+                    <h3 class="section-title">Personal Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donorType" class="form-label">I am a</label>
+                            <select id="donorType" class="form-select" required>
+                                <option value="">Select type</option>
+                                <option value="individual">Individual</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="mess">Mess/Canteen</option>
+                                <option value="hotel">Hotel</option>
+                                <option value="catering">Catering Service</option>
+                                <option value="grocery">Grocery Store</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full Name / Business Name</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="Enter your name or business name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <div class="phone-input">
+                                <span class="country-code">+91</span>
+                                <input type="tel" id="phone" class="form-input" placeholder="9876543210" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title">Location Details</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea id="address" class="form-textarea" placeholder="Enter your complete address" rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" class="form-input" placeholder="Enter your city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode" class="form-label">PIN Code</label>
+                            <input type="text" id="pincode" class="form-input" placeholder="123456" pattern="[0-9]{6}" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title">Food Sharing Preferences</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Types of food you typically share</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="foodTypes" value="cooked-meals">
+                                    <span class="checkmark"></span>
+                                    Cooked Meals
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="foodTypes" value="fresh-produce">
+                                    <span class="checkmark"></span>
+                                    Fresh Produce
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="foodTypes" value="packaged-food">
+                                    <span class="checkmark"></span>
+                                    Packaged Food
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="foodTypes" value="dairy">
+                                    <span class="checkmark"></span>
+                                    Dairy Products
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="foodTypes" value="bakery">
+                                    <span class="checkmark"></span>
+                                    Bakery Items
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="foodTypes" value="beverages">
+                                    <span class="checkmark"></span>
+                                    Beverages
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="availability" class="form-label">Typical availability</label>
+                            <select id="availability" class="form-select" required>
+                                <option value="">Select availability</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="occasional">Occasional</option>
+                                <option value="events">During events only</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity" class="form-label">Typical quantity</label>
+                            <select id="quantity" class="form-select" required>
+                                <option value="">Select quantity</option>
+                                <option value="small">Small (1-10 people)</option>
+                                <option value="medium">Medium (10-50 people)</option>
+                                <option value="large">Large (50+ people)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="history.back()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Complete Registration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./src/js/main.js"></script>
+    <script src="./src/js/forms.js"></script>
+</body>
+</html>

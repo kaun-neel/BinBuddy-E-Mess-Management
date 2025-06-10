@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver Details - BinBuddy</title>
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/forms.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-page">
+        <div class="form-container">
+            <div class="form-header">
+                <button class="back-btn" onclick="history.back()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="form-title-section">
+                    <h1 class="form-title">Receiver Details</h1>
+                    <p class="form-subtitle">Help us understand your organization</p>
+                </div>
+            </div>
+
+            <form class="modern-form" id="receiverForm" onsubmit="handleReceiverSubmit(event)">
+                <div class="form-section">
+                    <h3 class="section-title">Organization Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="orgType" class="form-label">Organization Type</label>
+                            <select id="orgType" class="form-select" required>
+                                <option value="">Select type</option>
+                                <option value="ngo">NGO</option>
+                                <option value="charity">Charity Organization</option>
+                                <option value="community">Community Group</option>
+                                <option value="religious">Religious Organization</option>
+                                <option value="school">School/Educational Institution</option>
+                                <option value="shelter">Shelter/Care Home</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="orgName" class="form-label">Organization Name</label>
+                            <input type="text" id="orgName" class="form-input" placeholder="Enter organization name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="registrationNumber" class="form-label">Registration Number (if applicable)</label>
+                            <input type="text" id="registrationNumber" class="form-input" placeholder="Enter registration number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title">Contact Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Primary Contact Name</label>
+                            <input type="text" id="contactName" class="form-input" placeholder="Enter contact person name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="designation" class="form-label">Designation</label>
+                            <input type="text" id="designation" class="form-input" placeholder="e.g., Manager, Coordinator">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="organization@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <div class="phone-input">
+                                <span class="country-code">+91</span>
+                                <input type="tel" id="phone" class="form-input" placeholder="9876543210" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="altPhone" class="form-label">Alternative Phone (Optional)</label>
+                            <div class="phone-input">
+                                <span class="country-code">+91</span>
+                                <input type="tel" id="altPhone" class="form-input" placeholder="9876543210">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title">Location & Service Area</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address" class="form-label">Organization Address</label>
+                            <textarea id="address" class="form-textarea" placeholder="Enter complete address" rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" class="form-input" placeholder="Enter city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode" class="form-label">PIN Code</label>
+                            <input type="text" id="pincode" class="form-input" placeholder="123456" pattern="[0-9]{6}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="serviceRadius" class="form-label">Service Radius</label>
+                            <select id="serviceRadius" class="form-select" required>
+                                <option value="">Select radius</option>
+                                <option value="2">Within 2 km</option>
+                                <option value="5">Within 5 km</option>
+                                <option value="10">Within 10 km</option>
+                                <option value="20">Within 20 km</option>
+                                <option value="city">Entire city</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title">Service Details</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="beneficiaries" class="form-label">Number of Beneficiaries</label>
+                            <select id="beneficiaries" class="form-select" required>
+                                <option value="">Select range</option>
+                                <option value="1-50">1-50 people</option>
+                                <option value="51-100">51-100 people</option>
+                                <option value="101-500">101-500 people</option>
+                                <option value="500+">500+ people</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="operatingHours" class="form-label">Operating Hours</label>
+                            <input type="text" id="operatingHours" class="form-input" placeholder="e.g., 9 AM - 6 PM" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Days of Operation</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="monday">
+                                    <span class="checkmark"></span>
+                                    Monday
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="tuesday">
+                                    <span class="checkmark"></span>
+                                    Tuesday
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="wednesday">
+                                    <span class="checkmark"></span>
+                                    Wednesday
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="thursday">
+                                    <span class="checkmark"></span>
+                                    Thursday
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="friday">
+                                    <span class="checkmark"></span>
+                                    Friday
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="saturday">
+                                    <span class="checkmark"></span>
+                                    Saturday
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="operatingDays" value="sunday">
+                                    <span class="checkmark"></span>
+                                    Sunday
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="description" class="form-label">Brief Description of Services</label>
+                            <textarea id="description" class="form-textarea" placeholder="Describe the services you provide to the community" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="history.back()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Complete Registration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./src/js/main.js"></script>
+    <script src="./src/js/forms.js"></script>
+</body>
+</html>
